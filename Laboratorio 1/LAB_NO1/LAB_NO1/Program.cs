@@ -12,7 +12,7 @@ namespace LAb02
     class Test
     {
 
-        private static string _path = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\input_challenge.jsonl";
+        private static string _path = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 1\input_challenge.jsonl";
 
         public static string GetUsuarios()
         {
