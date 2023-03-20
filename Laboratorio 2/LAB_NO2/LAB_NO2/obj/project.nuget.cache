@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MFrRAZJ+VJShW//EZoLKZiglfrGtv5zyFRBxSI9LgdaBG+UJGnYgYVTDhti0s70+sDSCk7ZcZQR9vCOaSpf/mw==",
+  "dgSpecHash": "sLnuj9VrUxH2AL384f9hp67TpcR/WAZqRvLOYwT1DQzkcaWxCzWp/lYVhj9bJ6Sz2mBnNuTL8+XE3dOnFJg/kQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Monica\\Documents\\URL\\QUINTO CICLO\\Estructura de datos I\\ED1\\Laboratorio 2\\LAB_NO2\\LAB_NO2\\LAB_NO2.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Monica\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
