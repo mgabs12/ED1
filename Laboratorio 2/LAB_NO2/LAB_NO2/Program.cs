@@ -71,11 +71,11 @@ namespace LAb02
                             var comp2 = comp[0];
 
                             //Para reconocer el input 2
-                            string[] informacion_ = lineaActual.Split("input2" + '"');
-                            var u_ = (informacion[1]);
-                            string[] comp_ = u.Split('"');
-                            var comp1_ = comp[0];
-                            var comp2_ = comp[0];
+                            //string[] informacion_ = lineaActual.Split("input2" + '"');
+                            //var u_ = (informacion[1]);
+                            //string[] comp_ = u.Split('"');
+                            //var comp1_ = comp[0];
+                            //var comp2_ = comp[0];
 
 
                             //INPUT 1
@@ -95,20 +95,20 @@ namespace LAb02
                             }
 
 
-                            if (comp[0] == ":[{")
-                            {
-                                info1 = informacion_[1];
-                                informacion1 = info1.Split(':' + "[{");
-                                infoN = informacion1[1];
-                                infoD = informacion1[1];
-                            }
-                            else
-                            {
-                                info1 = informacion[1];
-                                informacion1 = info1.Split(':' + "[{}" + ',');
-                                infoN = informacion1[1];
-                                infoD = informacion1[1];
-                            }
+                            //if (comp[0] == ":[{")
+                            //{
+                            //    info1 = informacion_[1];
+                            //    informacion1 = info1.Split(':' + "[{");
+                            //    infoN = informacion1[1];
+                            //    infoD = informacion1[1];
+                            //}
+                            //else
+                            //{
+                            //    info1 = informacion[1];
+                            //    informacion1 = info1.Split(':' + "[{}" + ',');
+                            //    infoN = informacion1[1];
+                            //    infoD = informacion1[1];
+                            //}
 
                             string[] informacionN = infoN.Split('{');
                             var infonn = informacionN[1];
@@ -124,13 +124,13 @@ namespace LAb02
 
 
 
-                            string[] separI2 = infodd.Split('[');
-                            var info4 = separI2[1];
+                            //string[] separI2 = infodd.Split('[');
+                            //var info4 = separI2[1];
 
-                            string[] separI21 = info4.Split(']');
-                            var info5 = separI21[0];
+                            //string[] separI21 = info4.Split(']');
+                            //var info5 = separI21[0];
 
-                            separI22 = info5.Split(',');
+                            //separI22 = info5.Split(',');
 
                             for (c = 0; c < informacionP2.Length; c++)
                             {
@@ -155,21 +155,21 @@ namespace LAb02
 
                             }
 
-                            for (int d = 0; b < informacionP.Length; b++)
-                            {
-                                for (int e = 0; a < separI22.Length; a++)
-                                {
-                                    if (informacionP[d].Contains(separI22[e] + ":true") && informacionP[d].Contains(separI22[e]) && separI22[e] != null)
-                                    {
-                                        conT++;
-                                    }
+                            //for (int d = 0; b < informacionP.Length; b++)
+                            //{
+                            //    for (int e = 0; a < separI22.Length; a++)
+                            //    {
+                            //        if (informacionP[d].Contains(separI22[e] + ":true") && informacionP[d].Contains(separI22[e]) && separI22[e] != null)
+                            //        {
+                            //            conT++;
+                            //        }
 
 
-                                }
-                            }
+                            //    }
+                            //}
 
                             Console.WriteLine("Apartamento número " + conT);
-                            Console.WriteLine("Apartamento número " + conP + " fue de: " + info4);
+                            //Console.WriteLine("Apartamento número " + conP + " fue de: " + info4);
                             conP++;
                             b = 0;
                             a = 0;
