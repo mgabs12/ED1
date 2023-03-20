@@ -1,0 +1,15 @@
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\bin\Debug\net6.0\LAB_NO2.exe
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\bin\Debug\net6.0\LAB_NO2.deps.json
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\bin\Debug\net6.0\LAB_NO2.runtimeconfig.json
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\bin\Debug\net6.0\LAB_NO2.dll
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\bin\Debug\net6.0\ref\LAB_NO2.dll
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\bin\Debug\net6.0\LAB_NO2.pdb
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.csproj.AssemblyReference.cache
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.AssemblyInfoInputs.cache
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.AssemblyInfo.cs
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.csproj.CoreCompileInputs.cache
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.dll
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\ref\LAB_NO2.dll
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.pdb
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\LAB_NO2\LAB_NO2\obj\Debug\net6.0\LAB_NO2.genruntimeconfig.cache
