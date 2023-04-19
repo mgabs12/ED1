@@ -11,8 +11,8 @@ namespace LAb02
     class Test
     {
 
-        private static string _path = @"C:\ClonRepo\jsonLab3.txt";
-        private static string _path2 = @"C:\ClonRepo\LAb30.txt";
+        private static string _path = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\input_auctions_example_lab_3.jsonl";
+        private static string _path2 = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\input_customer_example_lab_3.jsonl";
 
         public static string GetUsuarios()
         {
