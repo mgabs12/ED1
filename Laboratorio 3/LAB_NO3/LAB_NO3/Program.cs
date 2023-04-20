@@ -11,8 +11,8 @@ namespace LAb02
     class Test
     {
 
-        private static string _path = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\input_auctions_example_lab_3.jsonl";
-        private static string _path2 = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\input_customer_example_lab_3.jsonl";
+        private static string _path = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\input_auctions_example_lab_3.txt";
+        private static string _path2 = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\input_customer_example_lab_3.txt";
 
         public static string GetUsuarios()
         {
@@ -23,7 +23,6 @@ namespace LAb02
                 usu = reader.ReadToEnd();
 
             }
-
 
             return usu;
         }
@@ -38,13 +37,10 @@ namespace LAb02
 
             }
 
-
             return usu;
         }
         static void Main(string[] args)
         {
-
-
             int contador = 0;
             int con = 0;
             int i = 0;
@@ -68,54 +64,37 @@ namespace LAb02
             string[] separI22 = { };
             int c = 0, b = 0, a = 0;
 
-
-
             if (GetUsuarios2() != null && contador == con)
             {
                 try
                 {
-
                     string allFileData = File.ReadAllText(_path2);
                     foreach (string lineaActual in allFileData.Split('\n'))
                     {
-
                         if (!string.IsNullOrEmpty(lineaActual) && contador == con)
                         {
                             conT = 0;
                             string[] informacion = lineaActual.Split("{");
 
                             Console.WriteLine("Usuario: " + informacion[1]);
-
-
-
-
-
                         }
-
-
                     }
-
                 }
                 catch (Exception ex)
                 {
-
                     Console.WriteLine("Error" + ex);
                 }
 
-            }//
-
-
+            }
 
             Console.WriteLine("----------------------------------------------------------------------");
             if (GetUsuarios() != null && contador == con)
             {
                 try
                 {
-
                     string allFileData = File.ReadAllText(_path);
                     foreach (string lineaActual in allFileData.Split('\n'))
                     {
-
                         if (!string.IsNullOrEmpty(lineaActual) && contador == con)
                         {
                             conT = 0;
@@ -129,54 +108,8 @@ namespace LAb02
                             {
                                 Console.WriteLine("Datos: " + comp[r]);
                             }
-
-
-                            //string[] informacionN = infoN.Split('{');
-                            //var infonn = informacionN[1];
-
-
-                            //string[] informacionD = infoD.Split("],");
-                            //infodd = informacionD[1];
-                            //var info3 = informacionD[0];
-
-                            //string[] informacionP = info3.Split("," + '"');
-
-                            //informacionP2 = info3.Split("},{");
-
-
-
-                            //string[] separI2 = infodd.Split('[');
-                            //var info4 = separI2[1];
-
-                            //string[] separI21 = info4.Split(']');
-                            //var info5 = separI21[0];
-
-                            //separI22 = info5.Split(',');
-
-
-
-
-
-                            //for (int b = 0; b < informacionP.Length; b++)
-                            //{
-                            //    for (int a = 0; a < separI22.Length; a++)
-                            //    {
-                            //        if (informacionP[b].Contains(separI22[a]+":true") && informacionP[b].Contains(separI22[a]) && separI22[a] != null)
-                            //        {
-                            //            conT++;
-                            //        }
-
-
-                            //    }
-                            //}
-
-
-
                         }
-
-
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -184,16 +117,26 @@ namespace LAb02
                     Console.WriteLine("Error" + ex);
                 }
 
-            }//
-
-
-
-
-
-
+            }
         }
-
-
-
     }
 }
+// protected virtual E Find(AVLNode<E> root, E item)
+        //{
+        //    if (root == null)
+        //    {
+        //        return default(E);
+        //    }
+        //    if (item.CompareTo(root.Item) < 0)
+        //    {
+        //        return Find(root.Left, item);
+        //    }
+        //    else
+        //    {
+        //        if (item.CompareTo(root.Item) > 0)
+        //        {
+        //            return Find(root.Right, item);
+        //        }
+        //    }
+        //    return root.Item;
+        //}
