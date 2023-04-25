@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace LAb02
 {
-
     class Test
     {
 
@@ -58,85 +58,95 @@ namespace LAb02
             var infoN = "";
             var infoD = "";
             var infoG = "";
+            string opcion = "";
             string[] informacion1 = { };
             string[] informacionP3 = { };
             string[] informacionP2 = { };
             string[] separI22 = { };
             int c = 0, b = 0, a = 0;
 
-            if (GetUsuarios2() != null && contador == con)
-            {
-                try
-                {
-                    string allFileData = File.ReadAllText(_path2);
-                    foreach (string lineaActual in allFileData.Split('\n'))
-                    {
-                        if (!string.IsNullOrEmpty(lineaActual) && contador == con)
-                        {
-                            conT = 0;
-                            string[] informacion = lineaActual.Split("{");
+            //if (GetUsuarios2() != null && contador == con)
+            //{
+            //    try
+            //    {
+            //        string allFileData = File.ReadAllText(_path2);
+            //        foreach (string lineaActual in allFileData.Split('\n'))
+            //        {
+            //            if (!string.IsNullOrEmpty(lineaActual) && contador == con)
+            //            {
+            //                conT = 0;
+            //                string[] informacion = lineaActual.Split("{");
 
-                            Console.WriteLine("Usuario: " + informacion[1]);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error" + ex);
-                }
+            //                Console.WriteLine("Usuario: " + informacion[1]);
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine("Error" + ex);
+            //    }
 
-            }
+            //}
+            string allFileData = File.ReadAllText(_path);
+
+            var test = JObject.Parse(allFileData);
+            Console.WriteLine(test);
+
+
 
             Console.WriteLine("----------------------------------------------------------------------");
-            if (GetUsuarios() != null && contador == con)
-            {
-                try
-                {
-                    string allFileData = File.ReadAllText(_path);
-                    foreach (string lineaActual in allFileData.Split('\n'))
-                    {
-                        if (!string.IsNullOrEmpty(lineaActual) && contador == con)
-                        {
-                            conT = 0;
-                            string[] informacion = lineaActual.Split("customers");
-                            var u = (informacion[1]);
-                            string[] comp = u.Split('{');
-                            var comp1 = comp[0];
-                            var comp2 = comp[0];
+            //if (GetUsuarios() != null && contador == con)
+            //{
+            //    try
+            //    {
+            //        string allFileData = File.ReadAllText(_path);
+            //        foreach (string lineaActual in allFileData.Split('\n'))
+            //        {
+            //            if (!string.IsNullOrEmpty(lineaActual) && contador == con)
+            //            {
+            //                conT = 0;
+            //                string[] informacion = lineaActual.Split("customers");
+            //                var u = (informacion[1]);
+            //                informacion1 = u.Split('{');
+            //                var comp1 = informacion1[1];
 
-                            for (int r = 0; r < comp.Length; r++)
-                            {
-                                Console.WriteLine("Datos: " + comp[r]);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
+            //                informacionP2 = u.Split("budget" + '"' + ':');
+            //                for (int y =0;y<informacionP2.Length;y++) 
+            //                {
+                              
+            //                }
+                                
+            //                    string[] comp3 = comp1.Split(':');
+            //                    var comp4 = comp3[2];
 
-                    Console.WriteLine("Error" + ex);
-                }
+            //                    string[] comp5 = comp4.Split(',');
+            //                    var comp6 = comp5[0];
 
-            }
+            //                string[] comp7 = comp6.Split();
+                            
+
+
+
+            //                for (int r = 0; r<comp7.Length;r++) {
+                                
+
+            //                    Console.WriteLine(comp7[r]);
+
+            //                }
+
+
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+
+            //        Console.WriteLine("Error" + ex);
+            //    }
+
+            //}
+            
         }
     }
 }
-// protected virtual E Find(AVLNode<E> root, E item)
-        //{
-        //    if (root == null)
-        //    {
-        //        return default(E);
-        //    }
-        //    if (item.CompareTo(root.Item) < 0)
-        //    {
-        //        return Find(root.Left, item);
-        //    }
-        //    else
-        //    {
-        //        if (item.CompareTo(root.Item) > 0)
-        //        {
-        //            return Find(root.Right, item);
-        //        }
-        //    }
-        //    return root.Item;
-        //}
+
