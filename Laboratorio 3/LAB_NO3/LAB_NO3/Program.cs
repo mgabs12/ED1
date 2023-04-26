@@ -98,7 +98,7 @@ namespace LAb02
                             }
                         }
                     }
-                    Console.WriteLine("El mayor es: " + max);
+                    Console.WriteLine("Se aprovó el budget más grande con: " + max);
 
                     for (int r = 1; r < informacion1.Length; r++)
                     {
@@ -139,7 +139,7 @@ namespace LAb02
                                     int n = signature.Next(0, 10);
                                     key += n.ToString();
                                 }
-                                Console.WriteLine("Usuario: " + informacion[1]);
+                                Console.WriteLine("Información del usuario: " + informacion[1]);
                                 Console.WriteLine("Signature: " + key);
                             }
                         }
