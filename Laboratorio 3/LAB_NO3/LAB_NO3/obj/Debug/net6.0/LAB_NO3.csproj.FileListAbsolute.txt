@@ -13,3 +13,5 @@ C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio
 C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\LAB_NO3\LAB_NO3\obj\Debug\net6.0\ref\LAB_NO3.dll
 C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\LAB_NO3\LAB_NO3\obj\Debug\net6.0\LAB_NO3.pdb
 C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\LAB_NO3\LAB_NO3\obj\Debug\net6.0\LAB_NO3.genruntimeconfig.cache
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\LAB_NO3\LAB_NO3\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 3\LAB_NO3\LAB_NO3\obj\Debug\net6.0\LAB_NO3.csproj.CopyComplete
