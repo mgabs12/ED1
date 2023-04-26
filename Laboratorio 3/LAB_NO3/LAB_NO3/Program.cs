@@ -87,7 +87,7 @@ namespace LAb02
                                 string[] informacion2 = saveCadena.Split('"' + "budget" + '"' + ":");
                                 string[] informacion3 = informacion2[1].Split(',');
                                 var rdata = informacion3[0];
-                                Console.WriteLine(rdata);
+                                //Console.WriteLine(rdata);
                                 dataf = Convert.ToInt32(rdata);
                                 ndata[r - 1] = dataf;
 
