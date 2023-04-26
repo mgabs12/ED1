@@ -133,14 +133,7 @@ namespace LAb02
                             string[] informacion = lineaActual.Split("{");
                             if (informacion[1].Contains(Sdpi.ToString()))
                             {
-                                Random signature = new Random();
-                                for (int r = 0; r < 10; r++)
-                                {
-                                    int n = signature.Next(0, 10);
-                                    key += n.ToString();
-                                }
                                 Console.WriteLine("Usuario: " + informacion[1]);
-                                Console.WriteLine("Signature: " + key);
                             }
                         }
                     }
