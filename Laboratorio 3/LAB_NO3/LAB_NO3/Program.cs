@@ -49,103 +49,74 @@ namespace LAb02
             string[] arreglo2 = new string[1000];
             int conT = 0;
             int conP = 1;
-            Console.Title = "AVL";
+            Console.Title = "LAB 3 MÓNICA ORTÍZ";
 
-            //string decode = arbolHH.Decodificacion(encode);
-
-            var infodd = "";
-            var info1 = "";
-            var infoN = "";
-            var infoD = "";
-            var infoG = "";
-            string opcion = "";
             string[] informacion1 = { };
             string[] informacionP3 = { };
             string[] informacionP2 = { };
             string[] separI22 = { };
-            int c = 0, b = 0, a = 0;
-
-            //if (GetUsuarios2() != null && contador == con)
-            //{
-            //    try
-            //    {
-            //        string allFileData = File.ReadAllText(_path2);
-            //        foreach (string lineaActual in allFileData.Split('\n'))
-            //        {
-            //            if (!string.IsNullOrEmpty(lineaActual) && contador == con)
-            //            {
-            //                conT = 0;
-            //                string[] informacion = lineaActual.Split("{");
-
-            //                Console.WriteLine("Usuario: " + informacion[1]);
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Console.WriteLine("Error" + ex);
-            //    }
-
-            //}
-            string allFileData = File.ReadAllText(_path);
-
-            var test = JObject.Parse(allFileData);
-            Console.WriteLine(test);
-
-
+            string[] Cadena2 = new string[1000];
+            var saveCadena = "";
+            int[] ndata = new int[1000];
+            int dataf = 0;
+            int max = ndata[0];
+            var dpi = "";
+            var gdpi = "";
+            var Sdpi = "";
+            string key = "";
 
             Console.WriteLine("----------------------------------------------------------------------");
-            //if (GetUsuarios() != null && contador == con)
-            //{
-            //    try
-            //    {
-            //        string allFileData = File.ReadAllText(_path);
-            //        foreach (string lineaActual in allFileData.Split('\n'))
-            //        {
-            //            if (!string.IsNullOrEmpty(lineaActual) && contador == con)
-            //            {
-            //                conT = 0;
-            //                string[] informacion = lineaActual.Split("customers");
-            //                var u = (informacion[1]);
-            //                informacion1 = u.Split('{');
-            //                var comp1 = informacion1[1];
+            if (GetUsuarios() != null && contador == con)
+            {
+                try
+                {
+                    string allFileData = File.ReadAllText(_path);
+                    foreach (string lineaActual in allFileData.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(lineaActual) && contador == con)
+                        {
+                            conT = 0;
+                            string[] informacion = lineaActual.Split("customers");
+                            var u = (informacion[1]);
+                            informacion1 = u.Split('{');
+                            var comp1 = informacion1[1];
 
-            //                informacionP2 = u.Split("budget" + '"' + ':');
-            //                for (int y =0;y<informacionP2.Length;y++) 
-            //                {
-                              
-            //                }
+                            for (int r = 1; r < informacion1.Length; r++)
+                            {
+                                saveCadena = informacion1[r].ToString();
+                                Cadena2[r] = saveCadena;
+                                string[] informacion2 = saveCadena.Split('"' + "budget" + '"' + ":");
+                                string[] informacion3 = informacion2[1].Split(',');
+                                var rdata = informacion3 [0];
+                                Console.WriteLine(rdata);
+                                dataf = Convert.ToInt32(rdata);
+                                ndata[r - 1] = dataf;
                                 
-            //                    string[] comp3 = comp1.Split(':');
-            //                    var comp4 = comp3[2];
+                                if(ndata[r - 1] > max)
+                                {
+                                    max = ndata[r - 1];
+                                }
+                            }
+                        }
+                    }
+                    Console.WriteLine("El mayor es: " + max);
 
-            //                    string[] comp5 = comp4.Split(',');
-            //                    var comp6 = comp5[0];
+                    for(int r=1; r<informacion1.Length; r++)
+                    {
+                        if(informacion1[r].Contains(max.ToString()))
+                        {
+                            Console.WriteLine("El resultado fue: " + informacion1[r]);
+                            dpi = informacion1[r];
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
 
-            //                string[] comp7 = comp6.Split();
-                            
-
-
-
-            //                for (int r = 0; r<comp7.Length;r++) {
-                                
-
-            //                    Console.WriteLine(comp7[r]);
-
-            //                }
-
-
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-
-            //        Console.WriteLine("Error" + ex);
-            //    }
-
-            //}
-            
+                    Console.WriteLine("Error" + ex);
+                }
+            }
+            //if
         }
     }
 }
