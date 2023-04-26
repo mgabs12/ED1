@@ -87,12 +87,12 @@ namespace LAb02
                                 Cadena2[r] = saveCadena;
                                 string[] informacion2 = saveCadena.Split('"' + "budget" + '"' + ":");
                                 string[] informacion3 = informacion2[1].Split(',');
-                                var rdata = informacion3 [0];
+                                var rdata = informacion3[0];
                                 Console.WriteLine(rdata);
                                 dataf = Convert.ToInt32(rdata);
                                 ndata[r - 1] = dataf;
-                                
-                                if(ndata[r - 1] > max)
+
+                                if (ndata[r - 1] > max)
                                 {
                                     max = ndata[r - 1];
                                 }
@@ -101,12 +101,17 @@ namespace LAb02
                     }
                     Console.WriteLine("El mayor es: " + max);
 
-                    for(int r=1; r<informacion1.Length; r++)
+                    for (int r = 1; r < informacion1.Length; r++)
                     {
-                        if(informacion1[r].Contains(max.ToString()))
+                        if (informacion1[r].Contains(max.ToString()))
                         {
                             Console.WriteLine("El resultado fue: " + informacion1[r]);
                             dpi = informacion1[r];
+                            string[] informacion4 = dpi.Split('"' + "dpi" + '"' + ":");
+                            gdpi = informacion4[1];
+                            string[] informacion5 = gdpi.Split(',');
+                            Sdpi = informacion5[0];
+                            Console.WriteLine("El DPI es: " + Sdpi);
                         }
                     }
                 }
@@ -116,8 +121,36 @@ namespace LAb02
                     Console.WriteLine("Error" + ex);
                 }
             }
-            //if
+            if (GetUsuarios2() != null && contador == con)
+            {
+                try
+                {
+                    string allFileData = File.ReadAllText(_path2);
+                    foreach (string lineaActual in allFileData.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(lineaActual) && contador == con)
+                        {
+                            conT = 0;
+                            string[] informacion = lineaActual.Split("{");
+                            if (informacion[1].Contains(Sdpi.ToString()))
+                            {
+                                Random signature = new Random();
+                                for (int r = 0; r < 10; r++)
+                                {
+                                    int n = signature.Next(0, 10);
+                                    key += n.ToString();
+                                }
+                                Console.WriteLine("Usuario: " + informacion[1]);
+                                Console.WriteLine("Signature: " + key);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error" + ex);
+                }
+            }
         }
     }
 }
-

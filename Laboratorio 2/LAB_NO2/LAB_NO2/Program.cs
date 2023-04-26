@@ -1,196 +1,256 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections;
+﻿using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LAb02
+public class Program
 {
-
-    class Test
+    public class House
     {
+        public string zoneDangerous { get; set; }
+        public string address { get; set; }
+        public double price { get; set; }
+        public string contactPhone { get; set; }
+        public string id { get; set; }
+    }
+    public class Apartment
+    {
+        public bool isPetFriendly { get; set; }
+        public string address { get; set; }
+        public double price { get; set; }
+        public string contactPhone { get; set; }
+        public string id { get; set; }
+    }
+    public class Premise
+    {
+        public string[] commercialActivities { get; set; }
+        public string address { get; set; }
+        public double price { get; set; }
+        public string contactPhone { get; set; }
+        public string id { get; set; }
+    }
+    public class Builds
+    {
+        public Premise[]? Premises { get; set; }
+        public Apartment[]? Apartments { get; set; }
+        public House[]? Houses { get; set; }
+    }
+    public class Input1
+    {
+        public Dictionary<string, bool> services { get; set; }
+        public Builds builds { get; set; }
 
-        private static string _path = @"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\input_challenge_lab_2.jsonl";
+    }
+    public class Input2
+    {
+        public double budget { get; set; }
+        public string typeBuilder { get; set; }
+        public string[] requiredServices { get; set; }
+        public string? commercialActivity { get; set; }
+        public bool? wannaPetFriendly { get; set; }
+        public string? minDanger { get; set; }
+    }
+    public class InputLab
+    {
+        public Input1[] input1 { get; set; }
+        public Input2 input2 { get; set; }
+    }
 
-        public static string GetUsuarios()
+    static void Main(string[] args)
+    {
+        for (int r = 0; r < 100; r++)
         {
+            string jsonText = File.ReadAllText(@"C:\Users\Monica\Documents\URL\QUINTO CICLO\Estructura de datos I\ED1\Laboratorio 2\input_challenge_lab_2.jsonl");
+            string[] jsonObjects = jsonText.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            InputLab input = JsonSerializer.Deserialize<InputLab>(jsonObjects[r])!;
 
-            string usu;
-            using (var reader = new StreamReader(_path))
+            bool[] TypeBuilders = { false, false, false };
+            string CAA = "";
+            int Request = 0;
+            string ZDR_S = "";
+            int ZDR_I = 0;
+            bool PetFriendR;
+            string respuestas = "";
+            int CantidadRespuestas = 0;
+            string[] IDsRespuesta = new string[200];
+            double[] PriceRespuesta = new double[200];
+
+
+
+            //Se revisa lo que desea el cliente//
+            double BudgetR = input.input2.budget;
+            if (input.input2.typeBuilder == "Apartments") { Request = 0; }
+            if (input.input2.typeBuilder == "Houses")
             {
-                usu = reader.ReadToEnd();
-
+                Request = 1; ZDR_S = input.input2.minDanger;
+                //Se asigna valor numérico a ZoneDanger//
+                if (ZDR_S == "Green") { ZDR_I = 3; }
+                if (ZDR_S == "Yellow") { ZDR_I = 2; }
+                if (ZDR_S == "Orange") { ZDR_I = 1; }
+                if (ZDR_S == "Red") { ZDR_I = 0; }
             }
+            if (input.input2.typeBuilder == "Premises") { Request = 2; }
+            //Se revisa lo que desea el cliente//
 
 
-            return usu;
-        }
-        static void Main(string[] args)
-        {
 
-
-            int contador = 0;
-            int con = 0;
-
-            string[] arreglo = new string[100000];
-            string[] arreglo2 = new string[100000];
-            int conT = 0;
-            int conP = 1;
-
-            //string decode = arbolHH.Decodificacion(encode);
-
-            var infodd = "";
-            var info1 = "";
-            var infoN = "";
-            var infoD = "";
-            var infoG = "";
-            string[] informacion1 = { };
-            string[] informacionP3 = { };
-            string[] informacionP2 = { };
-            string[] separI22 = { };
-            int c = 0, b = 0, a = 0;
-
-            if (GetUsuarios() != null && contador == con)
+            //Se introducen budget, PF, ZD o CA en un vector//
+            switch (Request)
             {
-                try
-                {
-                    string allFileData = File.ReadAllText(_path); //Abre el archivo
-                    foreach (string lineaActual in allFileData.Split('\n')) //Lee línea por línea
+                case 0: //Se están pidiendo apartamentos//
                     {
-
-                        if (!string.IsNullOrEmpty(lineaActual) && contador == con)
+                        for (int Iteracion = 0; Iteracion < input.input1.Length; Iteracion++)
                         {
-                            conT = 0;
-                            //Para reconocer el input 1
-                            string[] informacion = lineaActual.Split("input1" + '"');
-                            var u = (informacion[1]);
-                            string[] comp = u.Split('"');
-                            var comp1 = comp[0];
-                            var comp2 = comp[0];
+                            if (input.input1[Iteracion].builds.Apartments != null) { TypeBuilders[0] = true; }
 
-                            //Para reconocer el input 2
-                            //string[] informacion_ = lineaActual.Split("input2" + '"');
-                            //var u_ = (informacion[1]);
-                            //string[] comp_ = u.Split('"');
-                            //var comp1_ = comp[0];
-                            //var comp2_ = comp[0];
-
-
-                            //INPUT 1
-                            if (comp[0] == ":[{")
+                            if (TypeBuilders[0] == true)
                             {
-                                info1 = informacion[1];
-                                informacion1 = info1.Split(':' + "[{");
-                                infoN = informacion1[1];
-                                infoD = informacion1[1];
-                            }
-                            else
-                            {
-                                info1 = informacion[1];
-                                informacion1 = info1.Split(':' + "[{}" + ',');
-                                infoN = informacion1[1];
-                                infoD = informacion1[1];
-                            }
+                                string[] IDs = new string[input.input1[Iteracion].builds.Apartments.Length];
+                                bool[] PFs = new bool[input.input1[Iteracion].builds.Apartments.Length];
+                                double[] Budgets = new double[input.input1[Iteracion].builds.Apartments.Length];
 
-
-                            //if (comp[0] == ":[{")
-                            //{
-                            //    info1 = informacion_[1];
-                            //    informacion1 = info1.Split(':' + "[{");
-                            //    infoN = informacion1[1];
-                            //    infoD = informacion1[1];
-                            //}
-                            //else
-                            //{
-                            //    info1 = informacion[1];
-                            //    informacion1 = info1.Split(':' + "[{}" + ',');
-                            //    infoN = informacion1[1];
-                            //    infoD = informacion1[1];
-                            //}
-
-                            string[] informacionN = infoN.Split('{');
-                            var infonn = informacionN[1];
-
-
-                            string[] informacionD = infoD.Split("],");
-                            infodd = informacionD[1];
-                            var info3 = informacionD[0];
-
-                            string[] informacionP = info3.Split("," + '"');
-
-                            informacionP2 = info3.Split("},{");
-
-
-
-                            //string[] separI2 = infodd.Split('[');
-                            //var info4 = separI2[1];
-
-                            //string[] separI21 = info4.Split(']');
-                            //var info5 = separI21[0];
-
-                            //separI22 = info5.Split(',');
-
-                            for (c = 0; c < informacionP2.Length; c++)
-                            {
-                                infoG = informacionP2[c];
-                                informacionP3 = infoG.Split(',');
-                                while (b < informacionP3.Length)
+                                for (int BuildSearch = 0; BuildSearch < input.input1[Iteracion].builds.Apartments.Length; BuildSearch++)
                                 {
-                                    while (a < separI22.Length)
+                                    IDs[BuildSearch] = input.input1[Iteracion].builds.Apartments[BuildSearch].id;
+                                    PFs[BuildSearch] = input.input1[Iteracion].builds.Apartments[BuildSearch].isPetFriendly;
+                                    Budgets[BuildSearch] = input.input1[Iteracion].builds.Apartments[BuildSearch].price;
+                                }
+                                // Se evalua Budget y Pet//
+                                for (int BuildContains = 0; BuildContains < input.input1[Iteracion].builds.Apartments.Length; BuildContains++)
+                                {
+                                    if (PFs[BuildContains] == input.input2.wannaPetFriendly && Budgets[BuildContains] <= input.input2.budget)
                                     {
-                                        if (informacionP3[b].Contains(separI22[a] + ":true") && informacionP3[b].Contains(separI22[a]) && separI22[a] != null)
-                                        {
-                                            conT++;
+                                        IDsRespuesta[CantidadRespuestas] = IDs[BuildContains];
+                                        PriceRespuesta[CantidadRespuestas] = Budgets[BuildContains];
+                                        CantidadRespuestas++;
+                                    }
+                                }
+                                TypeBuilders[0] = false;
+                            }
+                        }
+                        break;
+                    }
+                case 1: //Pide houses//
+                    {
+                        for (int Iteracion = 0; Iteracion < input.input1.Length; Iteracion++)
+                        {
+                            if (input.input1[Iteracion].builds.Houses != null) { TypeBuilders[1] = true; }
 
+                            if (TypeBuilders[1] == true)
+                            {
+                                string[] IDs = new string[input.input1[Iteracion].builds.Houses.Length];
+                                double[] Budgets = new double[input.input1[Iteracion].builds.Houses.Length];
+                                int[] ZDsI = new int[input.input1[Iteracion].builds.Houses.Length];
+                                string ZDs = "";
+                                int ZDR_II = 0;
+
+                                for (int BuildSearch = 0; BuildSearch < input.input1[Iteracion].builds.Houses.Length; BuildSearch++)
+                                {
+                                    IDs[BuildSearch] = input.input1[Iteracion].builds.Houses[BuildSearch].id;
+                                    Budgets[BuildSearch] = input.input1[Iteracion].builds.Houses[BuildSearch].price;
+                                    ZDs = input.input1[Iteracion].builds.Houses[BuildSearch].zoneDangerous;
+                                    // Se asigna el número dependiendo del color de zona de riesgo//
+                                    if (ZDs == "Green") { ZDR_II = 3; }
+                                    if (ZDs == "Yellow") { ZDR_II = 2; }
+                                    if (ZDs == "Orange") { ZDR_II = 1; }
+                                    if (ZDs == "Red") { ZDR_II = 0; }
+                                    ZDsI[BuildSearch] = ZDR_II;
+                                    // Se asigna en número dependiendo del color de zona de riesgo//
+                                }
+                                for (int BuildContains = 0; BuildContains < input.input1[Iteracion].builds.Houses.Length; BuildContains++)
+                                {
+                                    if (ZDsI[BuildContains] <= ZDR_I && Budgets[BuildContains] <= input.input2.budget)
+                                    {
+                                        IDsRespuesta[CantidadRespuestas] = IDs[BuildContains];
+                                        PriceRespuesta[CantidadRespuestas] = Budgets[BuildContains];
+                                        CantidadRespuestas++;
+                                    }
+                                }
+                            }
+                            TypeBuilders[1] = false;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        for (int Iteracion = 0; Iteracion < input.input1.Length; Iteracion++)
+                        {
+                            if (input.input1[Iteracion].builds.Premises != null) { TypeBuilders[2] = true; }
+
+                            if (TypeBuilders[2] == true)
+                            {
+                                string[] IDs = new string[input.input1[Iteracion].builds.Premises.Length];
+                                bool[] CAs = new bool[input.input1[Iteracion].builds.Premises.Length];
+                                double[] Budgets = new double[input.input1[Iteracion].builds.Premises.Length];
+                                for (int BuildSearch = 0; BuildSearch < input.input1[Iteracion].builds.Premises.Length; BuildSearch++)
+                                {
+                                    IDs[BuildSearch] = input.input1[Iteracion].builds.Premises[BuildSearch].id;
+                                    Budgets[BuildSearch] = input.input1[Iteracion].builds.Premises[BuildSearch].price;
+                                    for (int i = 0; i < input.input1[Iteracion].builds.Premises[BuildSearch].commercialActivities.Length; i++)
+                                    {
+                                        if (input.input1[Iteracion].builds.Premises[BuildSearch].commercialActivities[i] == input.input2.commercialActivity)
+                                        {
+                                            CAs[BuildSearch] = true;
                                         }
 
-                                        a++;
                                     }
-                                    b++;
-                                    a = 0;
                                 }
-                                b = 0;
 
+                                //Se evaluan las condiciones de Budget y Commercial Activities//
+                                for (int BuildContains = 0; BuildContains < input.input1[Iteracion].builds.Premises.Length; BuildContains++)
+                                {
+                                    if (CAs[BuildContains] == true && Budgets[BuildContains] <= input.input2.budget)
+                                    {
+                                        IDsRespuesta[CantidadRespuestas] = IDs[BuildContains];
+                                        PriceRespuesta[CantidadRespuestas] = Budgets[BuildContains];
+                                        CantidadRespuestas++;
+                                    }
+                                }
                             }
-
-                            //for (int d = 0; b < informacionP.Length; b++)
-                            //{
-                            //    for (int e = 0; a < separI22.Length; a++)
-                            //    {
-                            //        if (informacionP[d].Contains(separI22[e] + ":true") && informacionP[d].Contains(separI22[e]) && separI22[e] != null)
-                            //        {
-                            //            conT++;
-                            //        }
-
-
-                            //    }
-                            //}
-
-                            Console.WriteLine("Apartamento número " + conT);
-                            //Console.WriteLine("Apartamento número " + conP + " fue de: " + info4);
-                            conP++;
-                            b = 0;
-                            a = 0;
-
+                            TypeBuilders[2] = false;
                         }
+                        break;
 
-                        /*info1 muetsra todo
-                         
-                         
-                         */
 
                     }
-
-                }
-                catch (Exception ex)
+            }
+            // Ordenamiento//
+            double temporalD = 0;
+            string temporalS = "";
+            for (int i = 0; i < CantidadRespuestas; i++) // i = current//
+            {
+                int pivote = i;
+                for (int j = 0; j < CantidadRespuestas; j++)
                 {
-
-                    Console.WriteLine("Error" + ex);
+                    if (PriceRespuesta[pivote] <= PriceRespuesta[j])
+                    {
+                        pivote = j;
+                    }
+                    temporalD = PriceRespuesta[i];
+                    temporalS = IDsRespuesta[i];
+                    IDsRespuesta[i] = IDsRespuesta[pivote];
+                    PriceRespuesta[i] = PriceRespuesta[pivote];
+                    IDsRespuesta[pivote] = temporalS;
+                    PriceRespuesta[pivote] = temporalD;
                 }
 
             }
+            string RespuestaFinal = "[";
+            for (int i = 0; i < CantidadRespuestas; i++)
+            {
+                if (i < CantidadRespuestas - 1)
+                {
+                    RespuestaFinal = RespuestaFinal + "\"" + IDsRespuesta[i] + "\"" + ",";
+                }
+                else
+                {
+                    RespuestaFinal = RespuestaFinal + "\"" + IDsRespuesta[i] + "\"";
+                }
+
+            }
+            RespuestaFinal = RespuestaFinal + "]";
+
+            Console.WriteLine(RespuestaFinal);
         }
     }
 }
