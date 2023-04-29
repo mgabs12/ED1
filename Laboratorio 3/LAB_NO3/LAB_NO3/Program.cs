@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LAb02
+namespace LAb03
 {
     class Test
     {
