@@ -63,8 +63,9 @@ namespace LAb02
             var gdpi = "";
             var Sdpi = "";
             string key = "";
+            int conteo = 0;
 
-            Console.WriteLine("----------------------------------------------------------------------");
+            Console.WriteLine("LAB3");
             if (GetUsuarios() != null && contador == con)
             {
                 try
@@ -97,7 +98,13 @@ namespace LAb02
                                 }
                             }
                         }
+                        for (int r = 1; r < informacion1.Length; r++)
+                        {
+
+                            conteo++;
+                        }
                     }
+
                     Console.WriteLine("Se aprovó el budget más grande con: " + max);
 
                     for (int r = 1; r < informacion1.Length; r++)
@@ -110,7 +117,7 @@ namespace LAb02
                             gdpi = informacion4[1];
                             string[] informacion5 = gdpi.Split(',');
                             Sdpi = informacion5[0];
-                            Console.WriteLine("El DPI es: " + Sdpi);
+                            Console.WriteLine("El DPI del usuario ganador es: " + Sdpi);
                         }
                     }
                 }
@@ -139,7 +146,7 @@ namespace LAb02
                                     int n = signature.Next(0, 10);
                                     key += n.ToString();
                                 }
-                                Console.WriteLine("Información del usuario: " + informacion[1]);
+                                Console.WriteLine("Información del usuario ganador: " + informacion[1]);
                                 Console.WriteLine("Signature: " + key);
                             }
                         }
@@ -150,6 +157,7 @@ namespace LAb02
                     Console.WriteLine("Error" + ex);
                 }
             }
+            Console.WriteLine("Se rechazaron: " + (conteo - 1) + " usuarios");
         }
     }
 }
