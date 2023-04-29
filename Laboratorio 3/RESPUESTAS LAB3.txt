@@ -3,4 +3,4 @@ El resultado fue: "dpi":9019734895175,"budget":9994,"date":"2023-04-17T00:43:17.
 El DPI del usuario ganador es: 9019734895175
 Información del usuario ganador: "dpi":9019734895175,"firstName":"Mozelle","lastName":"Kassulke","birthDate":"1966-02-28T04:19:58.007Z","job":"International Group Assistant","placeJob":"Hilpertland","salary":4260}
 Signature: 8757235562
-Se rechazaron: 4503 usuarios
+Se rechazaron: 4897 usuarios
